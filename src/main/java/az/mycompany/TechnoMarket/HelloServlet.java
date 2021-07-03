@@ -1,4 +1,4 @@
-package az.mycompany.TecnhoMarket;
+package az.mycompany.TechnoMarket;
 
 import java.io.*;
 import javax.servlet.http.*;

@@ -1,26 +1,26 @@
-package az.mycompany.TecnhoMarket.model;
+package az.mycompany.TechnoMarket.model;
 
 import java.time.LocalDateTime;
 
 public  class BaseModel {
-    private Long id;
+    private int id;
     private LocalDateTime dateTime;
     private boolean status;
 
     public BaseModel() {
     }
 
-    public BaseModel(Long id, LocalDateTime dateTime, boolean status) {
+    public BaseModel(int id, LocalDateTime dateTime, boolean status) {
         this.id = id;
         this.dateTime = dateTime;
         this.status = status;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
