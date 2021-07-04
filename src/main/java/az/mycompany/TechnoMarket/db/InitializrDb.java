@@ -73,13 +73,13 @@ public class InitializrDb {
                             "   id SERIAL primary key ," +
                             "   name VARCHAR(25) NOT NULL," +
                             "   surname VARCHAR(25) NOT NULL," +
-                            "   email VARCHAR(25) NOT NULL," +
-                            "   phone VARCHAR(25) NOT NULL," +
-                            "   username VARCHAR(25) NOT NULL," +
+                            "   email VARCHAR(25) NOT NULL unique ," +
+                            "   phone VARCHAR(25) NOT NULL unique ," +
+                            "   username VARCHAR(25) NOT NULL unique ," +
                             "   password VARCHAR(25) NOT NULL," +
                             "   role VARCHAR(25) NOT NULL," +
                             "   create_date date default current_date ," +
-                            "   status bool default false ," +
+                            "   status bool default true " +
                             ")" );
             conn.disConnection();
         } catch (SQLException throwables) {
@@ -90,8 +90,9 @@ public class InitializrDb {
 
     public static void main(String[] args) {
         InitializrDb initializrDb=new InitializrDb();
-        initializrDb.createBrandTable();
-        initializrDb.createModelTable();
-        initializrDb.createProductTable();
+//        initializrDb.createBrandTable();
+//        initializrDb.createModelTable();
+//        initializrDb.createProductTable();
+        initializrDb.createUsersTable();
     }
 }
