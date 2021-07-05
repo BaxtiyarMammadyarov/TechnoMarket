@@ -131,18 +131,18 @@ public class UserRepo {
 
     }
 
-    public static void main(String[] args) {
-        Users users=new Users();
-        users.setName("kjihih");
-        users.setSurname("hjhihk");
-        users.setPhone("joijoij");
-        users.setEmail("pklpkp");
-        users.setUsername("kjkjk");
-        users.setPassword("kjhkjhk");
-        UserRepo repo=new UserRepo();
-        repo.addUser(users);
-
-    }
+//    public static void main(String[] args) {
+//        Users users=new Users();
+//        users.setName("kjihih");
+//        users.setSurname("hjhihk");
+//        users.setPhone("joijoij");
+//        users.setEmail("pklpkp");
+//        users.setUsername("kjkjk");
+//        users.setPassword("kjhkjhk");
+//        UserRepo repo=new UserRepo();
+//        repo.addUser(users);
+//
+//    }
 
 
 }

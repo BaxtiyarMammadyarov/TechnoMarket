@@ -1,7 +1,10 @@
 package az.mycompany.TechnoMarket.db;
 
 
+
+
 import java.sql.*;
+import java.util.logging.Logger;
 
 public class ConnectionDb {
 //    private String className = "org.postgresql.Driver";
@@ -19,6 +22,7 @@ public class ConnectionDb {
             try {
                 Class.forName("org.postgresql.Driver");
                 conn = DriverManager.getConnection(urlDb , userName, password);
+
                 return conn;
 
             } catch (SQLException | ClassNotFoundException throwables) {

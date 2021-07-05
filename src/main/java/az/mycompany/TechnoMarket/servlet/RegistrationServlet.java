@@ -2,7 +2,6 @@ package az.mycompany.TechnoMarket.servlet;
 
 import az.mycompany.TechnoMarket.db.UserRepo;
 import az.mycompany.TechnoMarket.model.Users;
-import az.mycompany.TechnoMarket.util.PasswordEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "registration", value = "/registration")
 public class RegistrationServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Users user = new Users();
@@ -29,6 +29,7 @@ public class RegistrationServlet extends HttpServlet {
         user.setPhone(req.getParameter("phone"));
         user.setUsername(req.getParameter("username"));
         user.setPassword(req.getParameter("password"));
+        repo.addUser(user);
         resp.sendRedirect("login.html");
     }
 }

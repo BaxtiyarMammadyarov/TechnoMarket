@@ -88,11 +88,11 @@ public class InitializrDb {
         }
     }
 
-    public static void main(String[] args) {
-        InitializrDb initializrDb=new InitializrDb();
+//    public static void main(String[] args) {
+//        InitializrDb initializrDb=new InitializrDb();
 //        initializrDb.createBrandTable();
 //        initializrDb.createModelTable();
 //        initializrDb.createProductTable();
-        initializrDb.createUsersTable();
-    }
+//        initializrDb.createUsersTable();
+//    }
 }
