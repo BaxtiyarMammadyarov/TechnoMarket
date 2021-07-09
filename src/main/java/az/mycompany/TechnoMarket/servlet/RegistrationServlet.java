@@ -17,11 +17,15 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Users user = new Users();
         UserRepo repo = new UserRepo();
-        if (repo.existByUsername(req.getParameter("username")) ||
-                repo.existByEmail(req.getParameter("email")) ||
-                repo.existByPhone(req.getParameter("phone"))) {
 
-            resp.sendRedirect("regError.jsp");
+        if (repo.existByUsername(req.getParameter("username"))) {
+            resp.sendRedirect("usernameError.jsp");
+        }
+        else if( repo.existByEmail(req.getParameter("email"))){
+
+        }
+        else if(repo.existByPhone(req.getParameter("phone"))){
+
         }
         user.setName(req.getParameter("name"));
         user.setSurname(req.getParameter("surname"));

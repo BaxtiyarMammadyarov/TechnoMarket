@@ -1,27 +1,29 @@
 body{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     background-color: #BBBBBB;
     text-align: center;
+    width: 1350px;
 }
 *{
     box-sizing: border-box;
 }
 .sayfa{
-    width: 960px;
-    margin: 0 auto;
+    width: 1350px;
+   padding: 0;
+    margin: 0 ;
     background-color: white;
 }
 .baslik{
     background-color: #89196B;
     color: white;
-    padding: 20px;
+    padding: 0;
+    font-size: 15px;
 }
 
 
 /* Menu Kutusu */
 .menu {
-    overflow: hidden;
     background-color: #333;
 }
 .menu ul{
@@ -40,13 +42,14 @@ body{
     background: #cecece;
     color:#fff;
     display: block;
-    width: 95%;
+    width: 100%;
     margin:0 5px 0 0;
     text-align: center;
     background-color:cornsilk ;
     border: cornsilk;
     font-style: normal ;
     color: darkblue;
+    font-family: Arial;
 
 }
 /* Mouse üzerinde iken link değişimi */
@@ -61,14 +64,19 @@ body{
 }
 .icerik{
     background-color: darkkhaki;
+    width:max-content;
 }
 .sol,.sag{
-    width: 25%;
+    overflow:scroll ;
+    height:500px;
+    width: 20%;
     
     
 }
 .orta{
+    height:500px;
     width: 50%;
+    overflow: scroll;
 }
 .icerik:after {
     content: "";
@@ -77,7 +85,7 @@ body{
     background-color: darkkhaki;
 }
 .alt {
-    background-color: black;
+    background-color:goldenrod;
     color: white;
     padding: 10px;
     text-align: center;
@@ -92,4 +100,14 @@ details{
 }
 .baslik div{
     float: right;
+}
+.prList{
+    width:10px;
+    height: 10px;
+    background: #89196B;
+    display: flex;
+
+}
+li{
+    list-style-type: none;
 }

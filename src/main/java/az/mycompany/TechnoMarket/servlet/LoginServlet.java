@@ -1,6 +1,6 @@
 package az.mycompany.TechnoMarket.servlet;
 
-import az.mycompany.TechnoMarket.db.ConnectionDb;
+
 import az.mycompany.TechnoMarket.db.UserRepo;
 import az.mycompany.TechnoMarket.model.Users;
 import az.mycompany.TechnoMarket.util.PasswordEncoder;

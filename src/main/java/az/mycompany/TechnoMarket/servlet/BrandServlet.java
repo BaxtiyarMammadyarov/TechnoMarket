@@ -1,6 +1,6 @@
 package az.mycompany.TechnoMarket.servlet;
 
-import az.mycompany.TechnoMarket.db.ConnectionDb;
+
 import az.mycompany.TechnoMarket.model.Brand;
 
 import javax.servlet.ServletContext;

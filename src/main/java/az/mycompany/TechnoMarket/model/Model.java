@@ -6,7 +6,9 @@ public class Model extends  BaseModel{
     private  String name;
     private Brand brand;
 
+public Model(){
 
+}
     public Model(String name,Brand brand) {
         this.name = name;
         this.brand = brand;

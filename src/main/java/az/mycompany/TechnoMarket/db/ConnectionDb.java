@@ -4,12 +4,11 @@ package az.mycompany.TechnoMarket.db;
 
 
 import java.sql.*;
-import java.util.logging.Logger;
+
 
 public class ConnectionDb {
 //    private String className = "org.postgresql.Driver";
-    private String urlDb ="jdbc:postgresql://localhost:5432/technostore";
-
+    private String urlDb ="jdbc:postgresql://localhost:5432/techno_store";
     private String userName= "postgres";
     private String password= "root";
     private  Connection conn=null;
@@ -20,13 +19,13 @@ public class ConnectionDb {
 
         if (conn == null) {
             try {
-                Class.forName("org.postgresql.Driver");
+
                 conn = DriverManager.getConnection(urlDb , userName, password);
 
                 return conn;
 
-            } catch (SQLException | ClassNotFoundException throwables) {
-                throwables.printStackTrace();
+            }  catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
         return conn;
@@ -43,7 +42,7 @@ public class ConnectionDb {
     public static void main(String[] args) throws SQLException {
         ConnectionDb connectionDb=new ConnectionDb();
        Statement stmt= connectionDb.getConnection().createStatement();
-       stmt.executeUpdate(" create table techno_store.test (id integer ,name varchar )");
+       stmt.executeUpdate(" create table test (id integer ,name varchar )");
 
     }
 

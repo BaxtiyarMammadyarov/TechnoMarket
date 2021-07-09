@@ -1,43 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Qeydiyyat</title>
+    <style>
+        body {
+            background-color: blueviolet;
+        }
+
+        .container {
+            display: block;
+            width: 200px;
+
+            height: 200px;
+
+            position: absolute;
+
+            left: 45%;
+
+            top: 40%;
+
+            margin-left: -50px;
+
+            margin-top: -50px;
+        }
+        input{
+            margin: 1px;
+        }
+        label{
+            margin: 1px;
+        }
+
+
+        .form {
+            color: blue;
+
+        }
+
+
+    </style>
 </head>
 <body>
-<form ACTION="registration" method="post">
-    <table>
-        <tr>
-            <td>Ad</td>
-            <td><input type="text" name="name"></td>
-        </tr>
-        <tr>
-            <td>Soyad</td>
-            <td><input type="text" name="surname"></td>
-        </tr>
+<div class="container">
+    <form class="form" ACTION="registration" method="post">
 
-        <tr>
-            <td>Email</td>
-            <td><input type="text" name="email"></td>
-        </tr>
-        <tr>
-            <td>Telefon</td>
-            <td><input type="text" name="phone"></td>
-        </tr>
-        <tr>
-            <td>İstifadəçi adı</td>
-            <td><input type="text" name="username"></td>
-        </tr>
-        <tr>
-            <td>Şifrə</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Qeydiyyat"/></td>
-        </tr>
-    </table>
-</form>
+        <label for="name">Ad</label><br/>
+        <input type="text" id="name" name="name"><br/>
+
+        <label for="surname">Soyad</label><br/>
+        <input type="text" id="surname" name="surname"><br/>
+
+        <label for="email">Email</label><br/>
+        <input type="text" id="email" name="email"><br/>
+
+        <label for="phone">Telefon</label><br/>
+        <input type="text" id="phone" name="phone"><br/>
+
+        <label for="username">Istifadəçi adı</label><br/>
+        <input type="text" id="username" name="username"><br/>
+
+        <label for="pass">Şifrə</label><br/>
+        <input type="password" id="pass" name="password"><br/>
+
+        <input type="submit" value="Qeydiyyat"/>
+
+    </form>
+</div>
 
 </body>
 </html>

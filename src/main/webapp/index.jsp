@@ -19,7 +19,7 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="hello-servlet">Link1</a></li>
+            <li><a href="index.jsp" >Əsas səhifə</a></li>
             <li><a href="#">Link2</a></li>
             <li><a href="#">Link3</a></li>
             <li><a href="#">Link4</a></li>
@@ -45,8 +45,7 @@
                     <div>div2</div>
                     <div>div2</div>
                     <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
+
                 </details>
             </div>
             <div>
@@ -54,9 +53,7 @@
                     <summary>Tv,audio video</summary>
                     <div>div2</div>
                     <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
+
                 </details>
             </div>
             <div>
@@ -65,8 +62,7 @@
                     <div>div2</div>
                     <div>div2</div>
                     <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
+
                 </details>
             </div>
             <div>
@@ -75,8 +71,7 @@
                     <div>div2</div>
                     <div>div2</div>
                     <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
+
                 </details>
             </div>
             <div>
@@ -85,17 +80,36 @@
                     <div>div2</div>
                     <div>div2</div>
                     <div>div2</div>
-                    <div>div2</div>
-                    <div>div2</div>
                 </details>
             </div>
 
         </div>
         <div class="orta sutun">
+             <%
+                 for (int i = 0; i < 10; i++) {
 
-            <h2>Orta </h2>
-            <p>Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. Virginia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini incelediğinde kesin bir kaynağa ulaşmıştır.</p>
-            <p>Lorm Ipsum, Çiçero tarafından M.Ö. 45 tarihinde kaleme alınan "de Finibus Bonorum et Malorum" (İyi ve Kötünün Uç Sınırları) eserinin 1.10.32 ve 1.10.33 sayılı bölümlerinden gelmektedir. Bu kitap, ahlak kuramı üzerine bir tezdir ve Rönesans döneminde çok popüler olmuştur. Lorem Ipsum pasajının ilk satırı olan "Lorem ipsum dolor sit amet" 1.10.32 sayılı bölümdeki bir satırdan gelmektedir.</p>
+             %>
+
+            <pg:item>
+                <li class="preorder"><span class="tagimg "></span> <a
+                        href="<%="pr"+i%>"> <img
+                        src="" width="100px"
+                        height="100px" />
+                    <h3></h3>
+                    <h4>
+
+                    </h4> <span class="textkm">ödəniləcək məbləğ <strong>500.000₫</strong>
+								</span>
+                    <p class="info">
+                        <span>gjhgj</span>
+
+                    </p>
+                </a></li>
+            </pg:item>
+            <%
+                }
+            %>
+
         </div>
         <div class="sag sutun">
             <h2>Sağ</h2>

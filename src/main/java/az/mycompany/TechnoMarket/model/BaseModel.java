@@ -5,15 +5,16 @@ import java.time.LocalDateTime;
 public  class BaseModel {
     private int id;
     private LocalDateTime dateTime;
-    private boolean status;
+    private boolean enabled;
+
 
     public BaseModel() {
     }
 
-    public BaseModel(int id, LocalDateTime dateTime, boolean status) {
+    public BaseModel(int id, LocalDateTime dateTime, boolean enabled) {
         this.id = id;
         this.dateTime = dateTime;
-        this.status = status;
+        this.enabled = enabled;
     }
 
     public int getId() {
@@ -33,11 +34,11 @@ public  class BaseModel {
     }
 
     public boolean isStatus() {
-        return status;
+        return enabled;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStatus(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -45,7 +46,7 @@ public  class BaseModel {
         return "BaseModel{" +
                 "id=" + id +
                 ", dateTime=" + dateTime +
-                ", status=" + status +
+                ", enabled=" + enabled +
                 '}';
     }
 }

@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            background-color: greenyellow;
+        }
+
+        .container {
+            display: block;
+            width: 200px;
+
+            height: 200px;
+
+            position: absolute;
+
+            left: 45%;
+
+            top: 40%;
+
+            margin-left: -50px;
+
+            margin-top: -50px;
+        }
+        input{
+            margin: 1px;
+        }
+        label{
+            margin: 1px;
+        }
+
+
+        form {
+            color: blue;
+
+        }
+
+
+    </style>
 </head>
 <body>
-
+<div class="container">
 <form>
-  <table>
-    <tr>
-      <td>İstifadəçi adı</td>
-      <td><input type="text" name="username"></td>
-    </tr>
-    <tr>
-      <td>Şifrə</td>
-      <td><input type="password" name="password"></td>
-    </tr>
-  </table>
-
+    <label for="username">Istifadəçi adı</label><br/>
+    <input type="text" id="username" name="username"><br/>
+    <label for="pass">Şifrə</label><br/>
+    <input type="password" id="pass" name="password"><br/>
+    <input type="submit" name="login">
 </form>
-
+</div>
 </body>
 </html>

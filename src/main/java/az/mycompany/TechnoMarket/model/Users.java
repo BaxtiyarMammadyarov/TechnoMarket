@@ -8,7 +8,7 @@ public class Users extends BaseModel{
     private String phone;
     private String username;
     private String password;
-    private String role;
+    private String status;
 
     public String getName() {
         return name;
@@ -62,11 +62,11 @@ public class Users extends BaseModel{
 
 
 
-    public String getRole() {
-        return role;
+    public String getStatus() {
+        return status;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

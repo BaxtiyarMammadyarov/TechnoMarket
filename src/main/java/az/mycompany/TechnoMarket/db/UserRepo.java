@@ -18,7 +18,7 @@ public class UserRepo {
         try {
             PreparedStatement stmt = conn
                     .getConnection()
-                    .prepareStatement("Select * from techno_store.users where username=?");
+                    .prepareStatement("Select * from users where username=?");
             stmt.setString(1, username);
 
             ResultSet set = stmt.executeQuery();
@@ -30,7 +30,7 @@ public class UserRepo {
                 user.setPhone(set.getString("phone"));
                 user.setUsername(set.getString("username"));
                 user.setPassword(set.getString("password"));
-                user.setRole(set.getString("role"));
+                user.setStatus(set.getString("role"));
                 user.setDateTime(LocalDateTime.parse(set.getDate("create_date").toString()));
                 user.setStatus(set.getBoolean("status"));
             }
@@ -50,7 +50,7 @@ public class UserRepo {
             PreparedStatement stmt = conn
                     .getConnection()
                     .prepareStatement(
-                            "select * from techno_store.users where username=? ");
+                            "select * from users where username=? ");
             stmt.setString(1, username);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
@@ -70,7 +70,7 @@ public class UserRepo {
             PreparedStatement stmt = conn
                     .getConnection()
                     .prepareStatement(
-                            "select * from techno_store.users where email=? ");
+                            "select * from users where email=? ");
             stmt.setString(1, username);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
@@ -91,7 +91,7 @@ public class UserRepo {
             PreparedStatement stmt = conn
                     .getConnection()
                     .prepareStatement(
-                            "select * from techno_store.users where phone=? ");
+                            "select * from users where phone=? ");
             stmt.setString(1, phone);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
@@ -112,7 +112,7 @@ public class UserRepo {
             PreparedStatement stmt = conn
                     .getConnection()
                     .prepareStatement(
-                            "insert into techno_store.users(name,surname,email,phone,username,password,role)" +
+                            "insert into users(name,surname,email,phone,username,password,status)" +
                                     "values(?,?,?,?,?,?,?) ");
             stmt.setString(1,user.getName());
             stmt.setString(2,user.getSurname());
