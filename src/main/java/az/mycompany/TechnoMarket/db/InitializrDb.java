@@ -56,7 +56,9 @@ public class InitializrDb {
                             "   name VARCHAR NOT NULL," +
                             "color VARCHAR NOT NULL," +
                             "photo VARCHAR NOT NULL," +
-                            "count_product INT" +
+                            "product_type VARCHAR  ," +
+                            "price numeric," +
+                            "count_product INT," +
                             "   create_date date default current_date ," +
                             "   enabled BOOL default true ," +
                             "   CONSTRAINT fk_model_id" +

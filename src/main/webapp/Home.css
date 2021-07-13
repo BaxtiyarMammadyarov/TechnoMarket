@@ -10,7 +10,7 @@ body{
 }
 .sayfa{
     width: 1350px;
-   padding: 0;
+    padding: 0;
     margin: 0 ;
     background-color: white;
 }
@@ -70,8 +70,8 @@ body{
     overflow:scroll ;
     height:500px;
     width: 20%;
-    
-    
+
+
 }
 .orta{
     height:500px;
@@ -93,7 +93,7 @@ body{
 summary{
     text-align: left;
     color: rgb(206, 16, 63);
-    
+
 }
 details{
     color:blue;

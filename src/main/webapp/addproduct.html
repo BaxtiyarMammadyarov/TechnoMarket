@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color:greenyellow;
+        }
+
+        .container {
+            display: block;
+            width: 200px;
+
+            height: 200px;
+
+            position: absolute;
+
+            left: 45%;
+
+            top: 40%;
+
+            margin-left: -50px;
+
+            margin-top: -50px;
+        }
+        input{
+            margin: 1px;
+        }
+        label{
+            margin: 1px;
+        }
+
+
+        .form {
+            color: blue;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="form" ACTION="/product/add" method="post">
+
+        <label for="name">Məhsulun Adı</label><br/>
+        <input type="text" id="name" name="name"><br/>
+
+        <label for="model">Məhsulun modeli</label><br/>
+        <input type="text" id="model" name="model"><br/>
+
+        <label for="brand">Məhsulun markası</label><br/>
+        <input type="text" id="brand" name="brand"><br/>
+
+        <label for="color">Məhsulun rəngi</label><br/>
+        <input type="text" id="color" name="color"><br/>
+
+        <label for="count">Məhsulun sayı</label><br/>
+        <input type="number" id="count" name="count"><br/>
+
+        <label for="price">Məhsulun qiyməti</label><br/>
+        <input type="number" id="price" name="price"><br/>
+        <label for="photo">Məhsulun qiyməti</label><br/>
+        <input type="file" id="photo" name="photo"><br/>
+
+        <input type="submit" value="Yadda saxla"/>
+
+    </form>
+</div>
+
+</body>
+</html>

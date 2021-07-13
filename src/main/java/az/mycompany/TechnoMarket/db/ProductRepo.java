@@ -20,7 +20,10 @@ public class ProductRepo {
         try {
             Statement stmt = conn.getConnection().createStatement();
 
-            ResultSet set = stmt.executeQuery("select * from model join brand on(model.brand_id=brand.id)");
+            ResultSet set = stmt.executeQuery("select product.*,model.*,brand.* from product  join model " +
+                    "on (product.model_id=model.id" +
+                    "  join " +
+                    "brand on(model.brand_id=brand.id)");
             while (set.next()) {
                 list.add(convertResultSetToProduct(set));
             }
@@ -47,12 +50,17 @@ public class ProductRepo {
                 }
                 PreparedStatement stmt = conn
                         .getConnection()
-                        .prepareStatement("insert into product(name,color,photo,product_count,model_id) values(?,?,?,?,?) ");
+                        .prepareStatement(
+                                "insert into product(" +
+                                        "name,color,photo,product_type,price,product_count,model_id) " +
+                                        "values(?,?,?,?,?,?,?) ");
                 stmt.setString(1, product.getName());
                 stmt.setString(2, product.getColor());
                 stmt.setString(3, product.getPhoto());
-                stmt.setInt(4, product.getCountProduct());
-                stmt.setInt(5, model.getId());
+                stmt.setString(4,product.getType());
+                stmt.setBigDecimal(5,product.getPrice());
+                stmt.setInt(6, product.getCountProduct());
+                stmt.setInt(7, model.getId());
                 stmt.executeUpdate();
                 product.setModel(model);
 
@@ -75,6 +83,7 @@ public class ProductRepo {
                     .getConnection()
                     .prepareStatement("update product set enabled=false where id=?");
             stmt.setInt(1, id);
+            stmt.executeUpdate();
             conn.disConnection();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -112,6 +121,8 @@ public class ProductRepo {
                 , set.getString("product.name")
                 , set.getString("color")
                 , set.getString("photo")
+                ,set.getString("type")
+                ,set.getBigDecimal("price")
                 , set.getInt("count_product"),
                 new Model(set.getInt("model.id")
                         , LocalDateTime.parse(set.getDate("model.create_date").toString())
@@ -121,6 +132,29 @@ public class ProductRepo {
                                 , LocalDateTime.parse(set.getDate("brand.create_date").toString())
                                 , set.getBoolean("brand.enabled")
                                 , set.getString("brand.name"))));
+    }
+    public List<String>getBrandNameByType(String type){
+        List<String>list=new ArrayList<>();
+        ConnectionDb conn = new ConnectionDb();
+
+        try {
+            PreparedStatement stmt = conn
+                    .getConnection()
+                    .prepareStatement("select distinct product.type from product join model"  +
+                                               "on (product.model_id=model.id" +
+                                               "join brand on(model.brand_id=brand.id)" +
+                            "where product.type=?");
+            stmt.setString(1, type);
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                while (resultSet.next()) {
+                    list.add(resultSet.getString(type));
+                }
+            }
+            conn.disConnection();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 }
 

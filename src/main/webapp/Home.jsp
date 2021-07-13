@@ -1,35 +1,36 @@
-<%@ page import="java.io.PrintWriter" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="az.mycompany.TechnoMarket.model.Product" %>
 <%@ page import="az.mycompany.TechnoMarket.db.ProductRepo" %>
 <%@ page import="az.mycompany.TechnoMarket.util.Conversion" %>
-<%@ page import="az.mycompany.TechnoMarket.model.Brand" %>
+
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.stream.Collectors" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.css">
 </head>
 <body>
 <div class="sayfa">
     <div class="baslik">
-     <table style="width: 100%">
-         <tr>
-             <td>td1</td>
-             <td>Techno store</td>
-             <td>td3</td>
-         </tr>
-     </table>
+        <table style="width: 100%">
+            <tr>
+                <td>td1</td>
+                <td>Techno store</td>
+                <td>td3</td>
+            </tr>
+        </table>
     </div>
     <div class="menu">
         <ul>
-            <li><a href="index.jsp" >Əsas səhifə</a></li>
+            <li><a href="Home.jsp" >Əsas səhifə</a></li>
             <li><a href="#">Link2</a></li>
             <li><a href="#">Link3</a></li>
             <li><a href="#">Link4</a></li>
-            <li><a href="registration.html" target="_blank">Qeydiyyat</a></li>
+            <li><a href="/logout" >Çıxış</a></li>
         </ul>
 
     </div>
@@ -51,12 +52,12 @@
                 <details >
                     <summary> Telefonlar və Planşetlər </summary>
                     <%
-                    for(String str:productTypePhone){
+                        for(String str:productTypePhone){
                     %>
                     <pg:item>
                         <h2><a href=""><%=str%></a></h2>
                     </pg:item>
-                     <%}%>
+                    <%}%>
                 </details>
             </div>
             <div>
@@ -126,12 +127,12 @@
 
         </div>
         <div class="orta sutun">
-             <%
+            <%
 
-                 Conversion conversion=new Conversion();
-                 for (Product product:list) {
+                Conversion conversion=new Conversion();
+                for (Product product:list) {
 
-             %>
+            %>
 
             <pg:item>
                 <li class="preorder"><span class="tagimg "></span> <a

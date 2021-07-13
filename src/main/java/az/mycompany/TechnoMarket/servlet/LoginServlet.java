@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @WebServlet(name = "login",value = "/login")
@@ -22,10 +23,28 @@ public class LoginServlet extends HttpServlet {
         UserRepo repo=new UserRepo();
         Users user;
         if(!repo.existByUsername("username")){
+            PrintWriter print= resp.getWriter();
+            print.println("<html><body>" +
+                    "<h2 >İstifadəçi adı mövcud deyil</h2>" +
+                    " <ul>" +
+                    "<li><a href='login.html' >Giriş</a></li>" +
+                    " <li><a href='index.jsp' >Əsas səhifə</a></li>" +
+                    " <li><a href='registration.html'>Qeydiyyat</a></li>" +
+                    " </ul>" +
+                    "</body></html>");
 
         }
         user= repo.getByUser(username);
         if(!user.getPassword().equals(encoder.passwordEncoder(password))){
+            PrintWriter print= resp.getWriter();
+            print.println("<html><body>" +
+                    "<h2 >Şifrə yanlışdir</h2>" +
+                    " <ul>" +
+                    "<li><a href='login.html' >Giriş</a></li>" +
+                    " <li><a href='index.jsp' >Əsas səhifə</a></li>" +
+                    " <li><a href='registration.html'>Qeydiyyat</a></li>" +
+                    " </ul>" +
+                    "</body></html>");
 
         }
         HttpSession session=req.getSession();
@@ -34,7 +53,7 @@ public class LoginServlet extends HttpServlet {
         Cookie cookie=new Cookie("username",username);
         cookie.setMaxAge(60);
         resp.addCookie(cookie);
-
+        resp.sendRedirect("Home.jsp");
 
 
 
