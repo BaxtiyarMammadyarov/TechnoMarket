@@ -24,7 +24,7 @@ public class BrandServlet extends HttpServlet {
         Brand brand=new Brand();
         brand.setName(req.getParameter("brandName"));
         brand.setDateTime(LocalDateTime.now());
-        brand.setStatus(true);
+        brand.setEnabled(true);
         resp.getWriter().println("<h1>"+brand.getName()+"</h1>");
 
 

@@ -33,20 +33,11 @@ public  class BaseModel {
         this.dateTime = dateTime;
     }
 
-    public boolean isStatus() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setStatus(boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseModel{" +
-                "id=" + id +
-                ", dateTime=" + dateTime +
-                ", enabled=" + enabled +
-                '}';
     }
 }

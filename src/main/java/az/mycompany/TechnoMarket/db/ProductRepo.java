@@ -20,10 +20,10 @@ public class ProductRepo {
         try {
             Statement stmt = conn.getConnection().createStatement();
 
-            ResultSet set = stmt.executeQuery("select product.*,model.*,brand.* from product  join model " +
-                    "on (product.model_id=model.id" +
+            ResultSet set = stmt.executeQuery("select * from product p  join model  m " +
+                    "on (p.model_id=m.id) " +
                     "  join " +
-                    "brand on(model.brand_id=brand.id)");
+                    " brand b on(m.brand_id=b.id)");
             while (set.next()) {
                 list.add(convertResultSetToProduct(set));
             }
@@ -140,10 +140,10 @@ public class ProductRepo {
         try {
             PreparedStatement stmt = conn
                     .getConnection()
-                    .prepareStatement("select distinct product.type from product join model"  +
-                                               "on (product.model_id=model.id" +
-                                               "join brand on(model.brand_id=brand.id)" +
-                            "where product.type=?");
+                    .prepareStatement("select distinct p.product_type from product p join model m "  +
+                                               "on (p.model_id=m.id)" +
+                                               "join brand b on(m.brand_id=b.id)" +
+                            "where p.product_type=?");
             stmt.setString(1, type);
             try (ResultSet resultSet = stmt.executeQuery()) {
                 while (resultSet.next()) {

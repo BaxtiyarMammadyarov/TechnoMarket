@@ -30,9 +30,9 @@ public class UserRepo {
                 user.setPhone(set.getString("phone"));
                 user.setUsername(set.getString("username"));
                 user.setPassword(set.getString("password"));
-                user.setStatus(set.getString("role"));
+                user.setStatus(set.getString("status"));
                 user.setDateTime(LocalDateTime.parse(set.getDate("create_date").toString()));
-                user.setStatus(set.getBoolean("status"));
+                user.setEnabled(set.getBoolean("enabled"));
             }
             conn.disConnection();
             return user;
@@ -46,6 +46,7 @@ public class UserRepo {
 
     public boolean existByUsername(String username) {
         ConnectionDb conn = new ConnectionDb();
+        boolean answer=false;
         try {
             PreparedStatement stmt = conn
                     .getConnection()
@@ -54,18 +55,19 @@ public class UserRepo {
             stmt.setString(1, username);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
-                return true;
+                answer= true;
             }
             conn.disConnection();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             conn.disConnection();
         }
-        return false;
+        return answer;
     }
 
     public boolean existByEmail(String username) {
         ConnectionDb conn = new ConnectionDb();
+        boolean answer=false;
         try {
             PreparedStatement stmt = conn
                     .getConnection()
@@ -74,19 +76,20 @@ public class UserRepo {
             stmt.setString(1, username);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
-                return true;
+                answer= true;
             }
             conn.disConnection();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             conn.disConnection();
         }
-        return false;
+        return answer;
 
     }
 
     public boolean existByPhone(String phone) {
         ConnectionDb conn = new ConnectionDb();
+        boolean answer=false;
         try {
             PreparedStatement stmt = conn
                     .getConnection()
@@ -95,14 +98,14 @@ public class UserRepo {
             stmt.setString(1, phone);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
-                return true;
+               answer= true;
             }
             conn.disConnection();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             conn.disConnection();
         }
-        return false;
+        return answer;
 
     }
     public void addUser(Users user){
@@ -133,14 +136,8 @@ public class UserRepo {
 
 //    public static void main(String[] args) {
 //        Users users=new Users();
-//        users.setName("kjihih");
-//        users.setSurname("hjhihk");
-//        users.setPhone("joijoij");
-//        users.setEmail("pklpkp");
-//        users.setUsername("kjkjk");
-//        users.setPassword("kjhkjhk");
-//        UserRepo repo=new UserRepo();
-//        repo.addUser(users);
+//     UserRepo repo=new UserRepo();
+//        System.out.println( repo.existByUsername("baxtiyar"));
 //
 //    }
 

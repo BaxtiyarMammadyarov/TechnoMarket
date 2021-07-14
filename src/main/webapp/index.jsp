@@ -2,14 +2,14 @@
 <%@ page import="az.mycompany.TechnoMarket.model.Product" %>
 <%@ page import="az.mycompany.TechnoMarket.db.ProductRepo" %>
 <%@ page import="az.mycompany.TechnoMarket.util.Conversion" %>
-<%@ page import="az.mycompany.TechnoMarket.model.Brand" %>
+
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.stream.Collectors" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Techno store</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -17,18 +17,17 @@
     <div class="baslik">
      <table style="width: 100%">
          <tr>
-             <td>td1</td>
+             <td></td>
              <td>Techno store</td>
-             <td>td3</td>
+             <td></td>
          </tr>
      </table>
     </div>
     <div class="menu">
         <ul>
             <li><a href="index.jsp" >Əsas səhifə</a></li>
-            <li><a href="#">Link2</a></li>
-            <li><a href="#">Link3</a></li>
-            <li><a href="#">Link4</a></li>
+            <li><a href="login.html">Profil</a></li>
+            <li><a href="login.html">Giriş</a></li>
             <li><a href="registration.html" target="_blank">Qeydiyyat</a></li>
         </ul>
 

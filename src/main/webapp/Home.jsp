@@ -5,8 +5,6 @@
 <%@ page import="az.mycompany.TechnoMarket.util.Conversion" %>
 
 <%@ page import="java.util.List" %>
-
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,16 +16,16 @@
     <div class="baslik">
         <table style="width: 100%">
             <tr>
-                <td>td1</td>
+                <td></td>
                 <td>Techno store</td>
-                <td>td3</td>
+                <td></td>
             </tr>
         </table>
     </div>
     <div class="menu">
         <ul>
             <li><a href="Home.jsp" >Əsas səhifə</a></li>
-            <li><a href="#">Link2</a></li>
+            <li><a href="">Profil</a></li>
             <li><a href="#">Link3</a></li>
             <li><a href="#">Link4</a></li>
             <li><a href="/logout" >Çıxış</a></li>
@@ -142,10 +140,10 @@
                     <h3><%=product.getColor()%></h3>
                     <h3><%=product.getModel().getName()%></h3>
                     <h3><%=product.getModel().getBrand().getName()%></h3>
-                    <span class="textkm">ödəniləcək məbləğ <strong>500.000₫</strong>
+                    <span class="textkm">ödəniləcək məbləğ <strong><%=product.getPrice()+" AZN"%></strong>
 								</span>
                     <p class="info">
-                        <span>gjhgj</span>
+                        <span><input type="button" formaction="order.jsp" value="Sifariş"/></span>
 
                     </p>
                 </a></li>

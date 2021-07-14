@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 
 @WebServlet("/product/add")
@@ -26,6 +27,8 @@ public class AddProductServlet extends HttpServlet {
         if(product==null){
             product.setName(req.getParameter("name"));
             product.setColor(req.getParameter("color"));
+            product.setPrice(BigDecimal.valueOf(Double.parseDouble(req.getParameter("price"))));
+            product.setType(req.getParameter("type"));
             product.setPhoto(conversion.convertImageToString(new File(req.getParameter("image"))));
             Model model=new Model();
             model.setName(req.getParameter("model"));
