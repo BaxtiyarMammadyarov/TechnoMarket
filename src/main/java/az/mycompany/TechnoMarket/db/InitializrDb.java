@@ -1,7 +1,6 @@
 package az.mycompany.TechnoMarket.db;
 
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,7 +14,7 @@ public class InitializrDb {
                     "create table brand(" +
                             "id  SERIAL PRIMARY KEY" +
                             ",name varchar(20)" +
-                            ",create_date date default current_date " +
+                            ",create_date varchar " +
                             ",enabled BOOL default true )");
             conn.disConnection();
         } catch (SQLException throwables) {
@@ -33,7 +32,7 @@ public class InitializrDb {
                             "   id SERIAL primary key ," +
                             "   brand_id INT," +
                             "   name VARCHAR(25) NOT NULL," +
-                            "   create_date date default current_date ," +
+                            "   create_date varchar ," +
                             "   enabled BOOL default true ," +
                             "   CONSTRAINT fk_brand_id" +
                             "      FOREIGN KEY(brand_id) " +
@@ -59,7 +58,7 @@ public class InitializrDb {
                             "product_type VARCHAR  ," +
                             "price numeric," +
                             "count_product INT," +
-                            "   create_date date default current_date ," +
+                            "   create_date varchar ," +
                             "   enabled BOOL default true ," +
                             "   CONSTRAINT fk_model_id" +
                             "      FOREIGN KEY(model_id) " +

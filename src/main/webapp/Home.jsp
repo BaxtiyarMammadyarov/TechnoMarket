@@ -154,8 +154,8 @@
 
         </div>
         <div class="sag sutun">
-            <h2>Sağ</h2>
-            <p>Lorem Ipsum pasajlarının birçok çeşitlemesi vardır. Ancak bunların büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek değiştirilmişlerdir.</p>
+            <h2>Sifaris</h2>
+            <%@ include file="order.jsp"%>
         </div>
     </div>
     <div class="alt"><p>technostore.net</p></div>

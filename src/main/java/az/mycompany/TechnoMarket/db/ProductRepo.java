@@ -52,8 +52,8 @@ public class ProductRepo {
                         .getConnection()
                         .prepareStatement(
                                 "insert into product(" +
-                                        "name,color,photo,product_type,price,product_count,model_id) " +
-                                        "values(?,?,?,?,?,?,?) ");
+                                        "name,color,photo,product_type,price,product_count,model_id,create_date) " +
+                                        "values(?,?,?,?,?,?,?,?) ");
                 stmt.setString(1, product.getName());
                 stmt.setString(2, product.getColor());
                 stmt.setString(3, product.getPhoto());
@@ -61,6 +61,8 @@ public class ProductRepo {
                 stmt.setBigDecimal(5,product.getPrice());
                 stmt.setInt(6, product.getCountProduct());
                 stmt.setInt(7, model.getId());
+                LocalDateTime dateTime=LocalDateTime.now();
+                stmt.setString(8,dateTime.toString());
                 stmt.executeUpdate();
                 product.setModel(model);
 
@@ -125,7 +127,7 @@ public class ProductRepo {
                 ,set.getBigDecimal("price")
                 , set.getInt("count_product"),
                 new Model(set.getInt("model.id")
-                        , LocalDateTime.parse(set.getDate("model.create_date").toString())
+                        , LocalDateTime.parse(set.getString("model.create_date"))
                         , set.getBoolean("model.enabled")
                         , set.getString("model.name"),
                         new Brand(set.getInt("brand.id")

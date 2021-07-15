@@ -21,11 +21,7 @@ public class BrandRepo {
 
             ResultSet set = stmt.executeQuery("select * from brand");
             while (set.next()) {
-                list.add(
-                        new Brand(set.getInt("id")
-                                , LocalDateTime.parse(set.getDate("create_date").toString())
-                                , set.getBoolean("eneabled")
-                                , set.getString("name")));
+                list.add(convertResultSetToBrand(set));
             }
             conn.disConnection();
         } catch (SQLException throwables) {
@@ -36,19 +32,21 @@ public class BrandRepo {
 
     public Brand add(Brand brand) {
         ConnectionDb conn = new ConnectionDb();
-        Brand brand1=getByName(brand.getName());
+        Brand brand1 = getByName(brand.getName());
         try {
-            if(brand1==null){
-            PreparedStatement stmt = conn
-                    .getConnection()
-                    .prepareStatement("insert into brand(name) values(?) ");
-            stmt.setString(1, brand.getName());
-            stmt.executeUpdate();
-            Statement statement = conn.getConnection().createStatement();
-            brand = getByName(brand.getName());
-            conn.disConnection();
-            }else {
-                brand=brand1;
+            if (brand1 == null) {
+                PreparedStatement stmt = conn
+                        .getConnection()
+                        .prepareStatement("insert into brand(name,create_date) values(?,?) ");
+                stmt.setString(1, brand.getName());
+                LocalDateTime dateTime = LocalDateTime.now();
+                stmt.setString(2, dateTime.toString());
+                stmt.executeUpdate();
+                Statement statement = conn.getConnection().createStatement();
+                brand = getByName(brand.getName());
+                conn.disConnection();
+            } else {
+                brand = brand1;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -87,10 +85,7 @@ public class BrandRepo {
             stmt.setString(1, name);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
-                brand = new Brand(set.getInt("id")
-                        , LocalDateTime.parse(set.getDate("create_date").toString())
-                        , set.getBoolean("enabled")
-                        , set.getString("name"));
+                brand = convertResultSetToBrand(set);
             }
 
             conn.disConnection();
@@ -117,5 +112,12 @@ public class BrandRepo {
             throwables.printStackTrace();
         }
         return false;
+    }
+    private Brand convertResultSetToBrand(ResultSet set) throws SQLException {
+        return new Brand(set.getInt("id")
+                    , LocalDateTime.parse(set.getString("create_date"))
+                    , set.getBoolean("enabled")
+                    , set.getString("name"));
+
     }
 }

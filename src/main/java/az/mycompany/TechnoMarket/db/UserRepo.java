@@ -115,8 +115,8 @@ public class UserRepo {
             PreparedStatement stmt = conn
                     .getConnection()
                     .prepareStatement(
-                            "insert into users(name,surname,email,phone,username,password,status)" +
-                                    "values(?,?,?,?,?,?,?) ");
+                            "insert into users(name,surname,email,phone,username,password,status,create_date)" +
+                                    "values(?,?,?,?,?,?,?,?) ");
             stmt.setString(1,user.getName());
             stmt.setString(2,user.getSurname());
             stmt.setString(3,user.getEmail());
@@ -124,6 +124,8 @@ public class UserRepo {
             stmt.setString(5,user.getUsername());
             stmt.setString(6,encoder.passwordEncoder(user.getPassword()));
             stmt.setString(7,"user");
+            LocalDateTime dateTime=LocalDateTime.now();
+            stmt.setString(8,dateTime.toString());
             stmt.executeUpdate();
             conn.disConnection();
 

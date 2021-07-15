@@ -6,6 +6,7 @@ import az.mycompany.TechnoMarket.model.Model;
 import az.mycompany.TechnoMarket.model.Product;
 import az.mycompany.TechnoMarket.util.Conversion;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +17,18 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 
-@WebServlet("/product/add")
+@WebServlet("/addProduct")
 public class AddProductServlet extends HttpServlet {
+    private ProductRepo repo;
+
+    @Override
+    public void init() throws ServletException {
+        repo=new ProductRepo();
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductRepo repo=new ProductRepo();
+
         Product product =repo.getByNameAndColor(req.getParameter("name"),req.getParameter("color"));
         Conversion conversion=new Conversion();
         if(product==null){
@@ -38,6 +45,14 @@ public class AddProductServlet extends HttpServlet {
             product.setModel(model);
             product.setCountProduct(Integer.parseInt(req.getParameter("count")));
             repo.add(product);
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/addProduct.html");
+            resp.getWriter().println("<font color=red>Məhsul əlavə edildi!!!</font>");
+            requestDispatcher.include(req, resp);
+        }
+        else {
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/addProduct.html");
+            resp.getWriter().println("<font color=red>Məhsul mövcuddur!!!</font>");
+            requestDispatcher.include(req, resp);
         }
     }
 }
