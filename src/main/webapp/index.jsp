@@ -1,4 +1,4 @@
-<%@ page import="java.io.PrintWriter" %>
+
 <%@ page import="az.mycompany.TechnoMarket.model.Product" %>
 <%@ page import="az.mycompany.TechnoMarket.db.ProductRepo" %>
 <%@ page import="az.mycompany.TechnoMarket.util.Conversion" %>
@@ -15,13 +15,13 @@
 <body>
 <div class="sayfa">
     <div class="baslik">
-     <table style="width: 100%">
-         <tr>
-             <td></td>
-             <td>Techno store</td>
-             <td></td>
-         </tr>
-     </table>
+        <table style="width: 100%">
+            <tr>
+                <td></td>
+                <td>Techno store</td>
+                <td></td>
+            </tr>
+        </table>
     </div>
     <div class="menu">
         <ul>
@@ -50,12 +50,12 @@
                 <details >
                     <summary> Telefonlar və Planşetlər </summary>
                     <%
-                    for(String str:productTypePhone){
+                        for(String str:productTypePhone){
                     %>
                     <pg:item>
                         <h2><a href=""><%=str%></a></h2>
                     </pg:item>
-                     <%}%>
+                    <%}%>
                 </details>
             </div>
             <div>
@@ -125,12 +125,12 @@
 
         </div>
         <div class="orta sutun">
-             <%
+            <%
 
-                 Conversion conversion=new Conversion();
-                 for (Product product:list) {
+                Conversion conversion=new Conversion();
+                for (Product product:list) {
 
-             %>
+            %>
 
             <pg:item>
                 <li class="preorder"><span class="tagimg "></span> <a
@@ -140,7 +140,7 @@
                     <h3><%=product.getColor()%></h3>
                     <h3><%=product.getModel().getName()%></h3>
                     <h3><%=product.getModel().getBrand().getName()%></h3>
-                    <span class="textkm">ödəniləcək məbləğ <strong>500.000₫</strong>
+                    <span class="textkm">ödəniləcək məbləğ <strong><%=product.getPrice()+" AZN"%></strong>
 								</span>
                     <p class="info">
                         <span>gjhgj</span>

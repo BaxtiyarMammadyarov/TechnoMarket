@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect("Home.jsp");
             }
             else{
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/registration.html");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.html");
                 resp.getWriter().println("<font color=red>Şifrə yanlişdir</font>");
                 requestDispatcher.include(req, resp);
             }

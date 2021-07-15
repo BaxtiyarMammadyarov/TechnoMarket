@@ -84,7 +84,7 @@ public class InitializrDb {
                             "   username VARCHAR NOT NULL unique ," +
                             "   password VARCHAR NOT NULL," +
                             "   status VARCHAR NOT NULL," +
-                            "   create_date date default current_date ," +
+                            "   create_date varchar ," +
                             "   enabled bool default true " +
                             ")" );
             conn.disConnection();

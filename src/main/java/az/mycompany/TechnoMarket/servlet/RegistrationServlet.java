@@ -54,6 +54,7 @@ public class RegistrationServlet extends HttpServlet {
             user.setPhone(req.getParameter("phone"));
             user.setUsername(req.getParameter("username"));
             user.setPassword(req.getParameter("password"));
+            user.setStatus("user");
             repo.addUser(user);
             resp.sendRedirect("login.html");
         }

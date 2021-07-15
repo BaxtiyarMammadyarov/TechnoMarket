@@ -155,7 +155,7 @@
         </div>
         <div class="sag sutun">
             <h2>Sifaris</h2>
-            <%@ include file="order.jsp"%>
+
         </div>
     </div>
     <div class="alt"><p>technostore.net</p></div>

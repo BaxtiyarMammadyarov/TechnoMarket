@@ -31,7 +31,7 @@ public class UserRepo {
                 user.setUsername(set.getString("username"));
                 user.setPassword(set.getString("password"));
                 user.setStatus(set.getString("status"));
-                user.setDateTime(LocalDateTime.parse(set.getDate("create_date").toString()));
+                user.setDateTime(LocalDateTime.parse(set.getString("create_date")));
                 user.setEnabled(set.getBoolean("enabled"));
             }
             conn.disConnection();
@@ -123,7 +123,7 @@ public class UserRepo {
             stmt.setString(4,user.getPhone());
             stmt.setString(5,user.getUsername());
             stmt.setString(6,encoder.passwordEncoder(user.getPassword()));
-            stmt.setString(7,"user");
+            stmt.setString(7,user.getStatus());
             LocalDateTime dateTime=LocalDateTime.now();
             stmt.setString(8,dateTime.toString());
             stmt.executeUpdate();

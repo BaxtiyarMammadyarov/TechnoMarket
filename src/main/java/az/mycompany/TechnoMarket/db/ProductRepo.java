@@ -118,7 +118,7 @@ public class ProductRepo {
     }
     private Product convertResultSetToProduct(ResultSet set) throws SQLException {
         return new Product(set.getInt("product.id")
-                , LocalDateTime.parse(set.getDate("product.create_date").toString())
+                , LocalDateTime.parse(set.getString("product.create_date"))
                 , set.getBoolean("product.enabled")
                 , set.getString("product.name")
                 , set.getString("color")

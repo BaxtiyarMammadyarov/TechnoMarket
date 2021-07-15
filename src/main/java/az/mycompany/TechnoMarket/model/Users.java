@@ -1,6 +1,10 @@
 package az.mycompany.TechnoMarket.model;
 
+import java.time.LocalDateTime;
+
 public class Users extends BaseModel{
+
+
 
     private String name;
     private String surname;
@@ -9,6 +13,32 @@ public class Users extends BaseModel{
     private String username;
     private String password;
     private String status;
+
+    public Users() {
+    }
+
+    public Users(int id, LocalDateTime dateTime,
+                 boolean enabled, String name, String surname, String email,
+                 String phone, String username, String password, String status) {
+        super(id, dateTime, enabled);
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.status = status;
+    }
+
+    public Users(String name, String surname, String email, String phone, String username, String password, String status) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.status = status;
+    }
 
     public String getName() {
         return name;
